@@ -9,7 +9,8 @@ import (
 	"seth/common"
 	"seth/crypto/sha3"
 	"seth/database"
-	"seth/rlp"
+
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 var (

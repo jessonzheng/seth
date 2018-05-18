@@ -8,7 +8,8 @@ import (
 	"seth/core/types"
 	"seth/database"
 	"seth/log"
-	"seth/rlp"
+
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 var (

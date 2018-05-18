@@ -17,6 +17,9 @@ func BytesToHash(b []byte) Hash {
 	return h
 }
 
+// HexToHash hex string to hash
+func HexToHash(s string) Hash { return BytesToHash(FromHex(s)) }
+
 // Equal judge two hash type is equal
 func (h Hash) Equal(b Hash) bool {
 	for i := range h {

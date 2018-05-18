@@ -10,7 +10,8 @@ import (
 	"seth/common/math"
 	"seth/crypto/secp256k1"
 	"seth/crypto/sha3"
-	"seth/rlp"
+
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 const (
@@ -41,6 +42,17 @@ func Keccak256(data ...[]byte) []byte {
 		d.Write(b)
 	}
 	return d.Sum(nil)
+}
+
+// Keccak256Hash calculates and returns the Keccak256 hash of the input data,
+// converting it to an internal Hash data structure.
+func Keccak256Hash(data ...[]byte) (h common.Hash) {
+	d := sha3.NewKeccak256()
+	for _, b := range data {
+		d.Write(b)
+	}
+	d.Sum(h[:0])
+	return h
 }
 
 // ToECDSAPub Acquire ecdsa publickey from bytes
